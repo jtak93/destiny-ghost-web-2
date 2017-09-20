@@ -21,7 +21,6 @@ export class AuthRedirectPage extends React.Component { // eslint-disable-line r
           "code": code,
           "grant_type": 'authorization_code',
           "client_id": 21342,
-          "client_secret": 'fed6dda8d95343d88323bde6c5a922ed'
       }
       const axiosConfig = {
         headers: {
@@ -37,6 +36,9 @@ export class AuthRedirectPage extends React.Component { // eslint-disable-line r
         type: "POST",
         url: 'https://www.bungie.net/Platform/App/OAuth/token/',
         data: body,
+        headers: {
+          "X-API-KEY": "fed6dda8d95343d88323bde6c5a922ed"
+        },
         dataType: 'json'
       }).done(data => {
         console.log(data)
