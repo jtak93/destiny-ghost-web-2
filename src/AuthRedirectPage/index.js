@@ -23,7 +23,7 @@ export class AuthRedirectPage extends React.Component { // eslint-disable-line r
           "client_id": 21342
       }
       console.log('body:', body)
-      api.post('/App/OAuth/token/', body, {data: body})
+      api.post('/App/OAuth/token/', body, {data: body, withCredentials: true})
         .then(resp => {
           localStorage.setItem('bungie-auth', resp.data)
         })
