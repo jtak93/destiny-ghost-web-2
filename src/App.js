@@ -1,25 +1,25 @@
+import 'semantic-ui-css/semantic.min.css';
+
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom'
-import Home from './home'
+import { Route } from 'react-router-dom'
+import HomePage from './HomePage'
 import About from './about'
+import Auth from './AuthRedirectPage'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 import store, { history } from './store'
-
+import NavBar from './common/NavBar'
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>
           <div>
-            <header>
-              <Link to="/">Home</Link>
-              <Link to="/about-us">About</Link>
-            </header>
-
+            <NavBar />
             <main>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={HomePage} />
               <Route exact path="/about-us" component={About} />
+              <Route exact path="/auth" component={Auth} />
             </main>
           </div>
         </ConnectedRouter>
