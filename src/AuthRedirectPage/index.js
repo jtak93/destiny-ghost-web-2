@@ -22,11 +22,8 @@ export class AuthRedirectPage extends React.Component { // eslint-disable-line r
           "grant_type": 'authorization_code',
           "client_id": 21342
       }
-      const axiosConfig = { 
-        withCredentials: true,
-        headers: {
-          'X-API-KEY': 'fed6dda8d95343d88323bde6c5a922ed',
-        }
+      const axiosConfig = {
+        withCredentials: true
       }
       axios.post('https://bungie.net/Platform/App/OAuth/token/', body, axiosConfig)
         .then(resp => {
