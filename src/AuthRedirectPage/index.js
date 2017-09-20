@@ -37,7 +37,6 @@ export class AuthRedirectPage extends React.Component { // eslint-disable-line r
         type: "POST",
         url: 'https://www.bungie.net/Platform/App/OAuth/token/',
         data: body,
-        success: success,
         dataType: 'json'
       }).done(data => {
         console.log(data)
