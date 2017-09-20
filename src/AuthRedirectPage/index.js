@@ -7,7 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { api } from '../utils/api';
+import axios from 'axios';
 
 export class AuthRedirectPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
@@ -22,8 +22,13 @@ export class AuthRedirectPage extends React.Component { // eslint-disable-line r
           "grant_type": 'authorization_code',
           "client_id": 21342
       }
-      console.log('body:', body)
-      api.post('/App/OAuth/token/', body, {data: body, withCredentials: true})
+      const axiosConfig = { 
+        withCredentials: true,
+        headers: {
+          'X-API-KEY': 'fed6dda8d95343d88323bde6c5a922ed',
+        }
+      }
+      axios.post('https://bungie.net/Platform/App/OAuth/token/', body, axiosConfig)
         .then(resp => {
           localStorage.setItem('bungie-auth', resp.data)
         })
