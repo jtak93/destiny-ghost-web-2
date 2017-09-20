@@ -7,7 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import axios from 'axios';
+import $ from 'jquery'
 
 export class AuthRedirectPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
@@ -29,10 +29,19 @@ export class AuthRedirectPage extends React.Component { // eslint-disable-line r
         },
         data: encodeURIComponent(JSON.stringify(body)),
       }
-      axios.post('https://www.bungie.net/Platform/App/OAuth/token/', {}, axiosConfig)
-        .then(resp => {
-          localStorage.setItem('bungie-auth', resp.data)
-        })
+      // axios.post('https://www.bungie.net/Platform/App/OAuth/token/', {}, axiosConfig)
+      //   .then(resp => {
+      //     localStorage.setItem('bungie-auth', resp.data)
+      //   })
+      $.ajax({
+        type: "POST",
+        url: 'https://www.bungie.net/Platform/App/OAuth/token/',
+        data: body,
+        success: success,
+        dataType: 'json'
+      }).done(data => {
+        console.log(data)
+      });
     }
   }
 
