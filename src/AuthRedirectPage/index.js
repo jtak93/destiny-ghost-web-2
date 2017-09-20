@@ -37,7 +37,7 @@ export class AuthRedirectPage extends React.Component { // eslint-disable-line r
         url: 'https://www.bungie.net/Platform/App/OAuth/token/',
         data: body,
         headers: {
-          "X-API-KEY": "fed6dda8d95343d88323bde6c5a922ed"
+          "X-API-Key": "fed6dda8d95343d88323bde6c5a922ed"
         },
         dataType: 'json'
       }).done(data => {
