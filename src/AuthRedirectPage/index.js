@@ -25,7 +25,7 @@ export class AuthRedirectPage extends React.Component { // eslint-disable-line r
       const axiosConfig = {
         withCredentials: true
       }
-      axios.post('https://bungie.net/Platform/App/OAuth/token/', body, axiosConfig)
+      axios.post('https://www.bungie.net/Platform/App/OAuth/token/', body, axiosConfig)
         .then(resp => {
           localStorage.setItem('bungie-auth', resp.data)
         })
